@@ -6,13 +6,14 @@ describe('validator module performs basic validation of', () => {
 
   // TODO: Make this series of tests less repetitive ... DRY it out
 
-  it('strings', () => {
-    let str = 'yes';
-    let num = 1;
-    let arr = ['a'];
-    let obj = {x:'y'};
-    let func = () => {};
-    let bool = false;
+  let str = 'yes';
+  let num = 1;
+  let arr = ['a'];
+  let obj = {x:'y'};
+  let func = () => {};
+  let bool = false;
+
+  test('strings', () => {
     expect(validator.isString(str)).toBeTruthy();
     expect(validator.isString(num)).toBeFalsy();
     expect(validator.isString(arr)).toBeFalsy();
@@ -21,13 +22,7 @@ describe('validator module performs basic validation of', () => {
     expect(validator.isString(bool)).toBeFalsy();
   });
 
-  it('numbers', () => {
-    let str = 'yes';
-    let num = 1;
-    let arr = ['a'];
-    let obj = {x:'y'};
-    let func = () => {};
-    let bool = false;
+  test('numbers', () => {
     expect(validator.isNumber(str)).toBeFalsy();
     expect(validator.isNumber(num)).toBeTruthy();
     expect(validator.isNumber(arr)).toBeFalsy();
@@ -36,13 +31,7 @@ describe('validator module performs basic validation of', () => {
     expect(validator.isNumber(bool)).toBeFalsy();
   });
 
-  it('arrays', () => {
-    let str = 'yes';
-    let num = 1;
-    let arr = ['a'];
-    let obj = {x:'y'};
-    let func = () => {};
-    let bool = false;
+  test('arrays', () => {
     expect(validator.isThisAnArray(str)).toBeFalsy();
     expect(validator.isThisAnArray(num)).toBeFalsy();
     expect(validator.isThisAnArray(arr)).toBeTruthy();
@@ -51,13 +40,7 @@ describe('validator module performs basic validation of', () => {
     expect(validator.isThisAnArray(bool)).toBeFalsy();  
   });
 
-  it('objects', () => {
-    let str = 'yes';
-    let num = 1;
-    let arr = ['a'];
-    let obj = {x:'y'};
-    let func = () => {};
-    let bool = false;
+  test('objects', () => {
     expect(validator.isObject(str)).toBeFalsy();
     expect(validator.isObject(num)).toBeFalsy();
     expect(validator.isObject(arr)).toBeFalsy();
@@ -66,13 +49,7 @@ describe('validator module performs basic validation of', () => {
     expect(validator.isObject(bool)).toBeFalsy();
   });
 
-  it('booleans', () => {
-    let str = 'yes';
-    let num = 1;
-    let arr = ['a'];
-    let obj = {x:'y'};
-    let func = () => {};
-    let bool = false;
+  test('booleans', () => {
     expect(validator.isBoolean(str)).toBeFalsy();
     expect(validator.isBoolean(num)).toBeFalsy();
     expect(validator.isBoolean(arr)).toBeFalsy();
@@ -81,13 +58,7 @@ describe('validator module performs basic validation of', () => {
     expect(validator.isBoolean(bool)).toBeTruthy();
   });
 
-  it('functions', () => {
-    let str = 'yes';
-    let num = 1;
-    let arr = ['a'];
-    let obj = {x:'y'};
-    let func = () => {};
-    let bool = false;
+  test('functions', () => {
     expect(validator.isFunction(str)).toBeFalsy();
     expect(validator.isFunction(num)).toBeFalsy();
     expect(validator.isFunction(arr)).toBeFalsy();
@@ -100,24 +71,24 @@ describe('validator module performs basic validation of', () => {
 
 describe('validator module performs complex validations', () => {
 
-  it('validates the presence of required object properties at any level', () => {
+  test('validates the presence of required object properties at any level', () => {
     // i.e. does person.hair.color exist and have a good value, not just person.hair
     let obj = {color: 'brown'};
     expect(validator.hasRequiredProperty(obj)).toBeTruthy();
 
   });
 
-  it('validates the proper types of object properties', () => {
+  test('validates the proper types of object properties', () => {
     // i.e. person.name must be a string, etc.
     expect(true).toBeFalsy();
   });
 
-  it('validates the types of values contained in an array', () => {
+  test('validates the types of values contained in an array', () => {
     // i.e. an array of all strings or numbers
     expect(true).toBeFalsy();
   });
 
-  it('validates a value array against an approved list', () => {
+  test('validates a value array against an approved list', () => {
     // i.e. a string might only be allowed to be "yes" or "no"
     expect(true).toBeFalsy();
   });
